@@ -10,7 +10,7 @@
 int data_bit;
 
 struct data {
-  char *message;
+  int *message;
   int data_size;
   volatile int idle_state;
   int *buffer;
@@ -22,11 +22,11 @@ void *transmit(void *arg) {
   data *TRANSMISSION = (data *)arg;
   pthread_cond_t *signal_receiver = TRANSMISSION->signal_receiver;
   int *buffer = TRANSMISSION->buffer;
-  char *message = TRANSMISSION->message;
+  int *message = TRANSMISSION->message;
 
   clock_t end = clock(), start = clock();
-  char character = TRANSMISSION->
-    int bit = 0;
+  char character;
+  int bit = 0;
 
   while (1)
     {
